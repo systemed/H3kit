@@ -1,3 +1,5 @@
+<img src="https://github.com/ehmjaysee/h3-ios/blob/master/assets/h3.png" width="450" />
+
 # Features
 
 Uber maintains an open source library called H3 which they use in their mobile apps. H3 is based on the concept of dividing the surface of the planet into a grid of hexigons or 'cells'. Each call has a unique identifier and a fixed size and location. The H3 code library can be used in various ways:
