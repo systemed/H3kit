@@ -1,4 +1,4 @@
-<img src="https://github.com/ehmjaysee/h3-ios/blob/master/assets/h3.png" width="450" />
+<img src="https://github.com/ehmjaysee/h3-ios/blob/master/assets/h3.png" /> 
 
 # Features
 
