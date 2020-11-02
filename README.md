@@ -11,9 +11,27 @@ Furthermore, H3 defines more than one grid size for the planet. In fact H3 defin
 
 # Installation via Cocoapods
 
-Just add this line to your Podfile
-
-`
+Create a [Podfile](https://guides.cocoapods.org/syntax/podfile.html) with the following specification:
+   ```ruby
    pod 'H3', :git => 'git@github.com:ehmjaysee/h3-ios.git'
+  ```
 
-`
+# Usage with Swift
+
+```swift
+import H3
+
+func testH3() {
+    let latitude = 40.1234
+    let longitude = 98.5432
+    let point = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    let index = point.h3CellIndex(resolution: resolution)
+    let hex = String(index, radix: 16, uppercase: true)
+    print(hex)
+    
+    let neighbors = point.h3Neighbors(resolution: 6, ringLevel: 1)
+    for item in neighbors {  
+        print(String(item, radix: 16, uppercase: true)) 
+    }
+}
+```
