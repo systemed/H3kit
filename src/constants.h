@@ -20,6 +20,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#if 0 //mjc
 #ifndef M_PI
 /** pi */
 #define M_PI 3.14159265358979323846
@@ -28,6 +29,7 @@
 #ifndef M_PI_2
 /** pi / 2.0 */
 #define M_PI_2 1.5707963267948966
+#endif
 #endif
 
 /** 2.0 * PI */
