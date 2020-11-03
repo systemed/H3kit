@@ -10,7 +10,7 @@ DESC
   spec.homepage 	= "https://github.com/ehmjaysee/H3kit"
   spec.license  	= "Apache 2.0 License"
   spec.author 		= { "Mike Chartier" => "ehmjaysee@icloud.com" }
-  spec.source   	= { :git => "https://github.com/ehmjaysee/H3kit.git", :tag => "v#{spec.version}" }
+  spec.source   	= { :git => "https://github.com/ehmjaysee/H3kit.git", :tag => spec.version.to_s }
   spec.source_files 	= 'src/h3lib/*.{c,h}*', 'src/swift/*.swift'
   spec.swift_versions	= [ '4.0','4.2','5.0' ]
   spec.static_framework	= true
