@@ -13,7 +13,7 @@ extension CLLocationCoordinate2D {
         let lat = degsToRads(latitude)
         let lon = degsToRads(longitude)
         var location = GeoCoord(lat: lat, lon: lon)
-        let index = geoToH3(&location, 6)
+        let index = geoToH3(&location, resolution)
         return index
     }
     // Find the neighbor cells for a given set of 2D coordinates and ring size
