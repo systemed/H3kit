@@ -5,7 +5,7 @@
 
 import Foundation
 import CoreLocation
-
+import h3lib
 
 extension CLLocationCoordinate2D {
     // Find the H3 cell index for a given set of 2D coordinates
