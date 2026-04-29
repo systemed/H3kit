@@ -17,9 +17,9 @@ final class H3kitTests: XCTestCase {
 
 		XCTAssertEqual(hex, "8E30E1D88A54307", "Conversion from lat, lon to h3 index")
 
-		var geoCoord = GeoCoord()
-		h3ToGeo(index, &geoCoord)
-		print(radsToDegs(geoCoord.lat), radsToDegs(geoCoord.lon))
+		var geoCoord = LatLng()
+		cellToLatLng(index, &geoCoord)
+		print(radsToDegs(geoCoord.lat), radsToDegs(geoCoord.lng))
 
 		let neighbors = point.h3Neighbors(resolution: resolution, ringLevel: 1)
 		for item in neighbors {

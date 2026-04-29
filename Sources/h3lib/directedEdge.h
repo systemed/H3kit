@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Uber Technologies, Inc.
+ * Copyright 2017, 2020 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/** @file localij.h
- * @brief   Local IJ coordinate space functions.
+/** @file  directedEdge.h
+ *  @brief DirectedEdge functions for manipulating directed edge indexes.
  */
 
-#ifndef LOCALIJ_H
-#define LOCALIJ_H
+#ifndef DIRECTEDEDGE_H
+#define DIRECTEDEDGE_H
 
-#include "coordijk.h"
-#include "h3api.h"
+#include "algos.h"
+#include "h3Index.h"
 
-H3Error cellToLocalIjk(H3Index origin, H3Index h3, CoordIJK *out);
-H3Error localIjkToCell(H3Index origin, const CoordIJK *ijk, H3Index *out);
+// nothing non-public in this file
 
 #endif

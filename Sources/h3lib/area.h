@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Uber Technologies, Inc.
+ * Copyright 2025 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/** @file  h3UniEdge.h
- *  @brief H3UniEdge functions for manipulating unidirectional edge indexes.
+/** @file area.h
+ * @brief   Area computation functions
  */
 
-#ifndef H3UNIEDGE_H
-#define H3UNIEDGE_H
+#ifndef AREA_H
+#define AREA_H
 
-#include "algos.h"
-#include "h3Index.h"
+#include "h3api.h"
 
-// nothing non-public in this file
+H3Error geoLoopAreaRads2(GeoLoop loop, double *out);
+H3Error geoPolygonAreaRads2(GeoPolygon poly, double *out);
+H3Error geoMultiPolygonAreaRads2(GeoMultiPolygon mpoly, double *out);
 
 #endif

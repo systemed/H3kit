@@ -1,6 +1,8 @@
 # Using Uber H3 cells with Swift/iOS
 
-# What is H3?
+This is a fork of the original H3kit library, updated for h3 library version 4.4.1 (and subsequent changes to April 2026), and for Swift Package Manager. There are breaking changes from earlier versions of H3kit, including renaming most of the C APIs.
+
+## What is H3?
 
 Uber maintains an open source library called H3 which they use in their mobile apps. H3 is based on the concept of dividing the surface of the planet into a grid of hexagons or 'cells'. Each call has a unique identifier and a fixed size and location. This type of grid system is much more powerful than a simple grid of latitude/longitude which produces a set of 'rectangles'. The H3 code library can be used in various ways:
 
@@ -14,15 +16,15 @@ Furthermore, H3 defines more than one grid size for the planet. In fact H3 defin
 
 Read more about the H3 grid system here: https://h3geo.org
 
-# Installation via Swift Package Manager
+## Installation via Swift Package Manager
 
 Add the Github URL as a package dependency.
 
-# Installation via Cocoapods
+## Installation via Cocoapods
 
 Add `pod 'H3kit', git: 'git@github.com:systemed/H3kit.git'` to your Podfile.
 
-# Usage with Swift
+## Usage with Swift
 
 ```swift
 import H3kit
@@ -42,31 +44,14 @@ func testH3() {
 }
 ```
 
-# Usage with C interface
+## Usage with C interface
 
 The C library has a rich set of APIs documented here:  https://h3geo.org/docs/api/indexing
 
-You can access the entire API from your Swift based project. Here are some of the main functions:
+You can access the entire API from your Swift-based project. See H3kitTests.swift and h3.swift for examples.
 
-```C
-H3Index geoToH3(const GeoCoord *g, int res);
-void h3ToGeo(H3Index h3, GeoCoord *g);
-void h3ToGeoBoundary(H3Index h3, GeoBoundary *gp);
-void kRing(H3Index origin, int k, H3Index* out);
-int maxKringSize(int k);
-h3Line
-```
+## Development
 
-Example showing how to take a set of 2D coordinates and generate the set of cells sourrounding that position.
+Eventually all common H3 functions should be given Swift wrappers.
 
-```swift
-import h3lib
-// Determine the set of nearby H3 cells based on location
-let latitude = degsToRads( 41.3343 )   // MUST convert to radians
-let longitude = degsToRads( 101.1188 )
-var location = GeoCoord(lat: latitude, lon: longitude)
-let index = geoToH3(&location, 6)
-let count = Int(maxKringSize(1))
-var neighbors = Array(repeating: H3Index(), count: count)
-kRing(index, 1, &neighbors) 
-```
+To update to the latest H3 library, manually copy all *.c and *.h files into Sources/h3lib. Copy h3api.h.in to Sources/include/h3api.h.

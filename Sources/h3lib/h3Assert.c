@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Uber Technologies, Inc.
+ * Copyright 2022 Uber Technologies, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/** @file localij.h
- * @brief   Local IJ coordinate space functions.
+/** @file h3Assert.c
+ * @brief   Support code for unit testing
  */
 
-#ifndef LOCALIJ_H
-#define LOCALIJ_H
+#include "h3Assert.h"
 
-#include "coordijk.h"
-#include "h3api.h"
-
-H3Error cellToLocalIjk(H3Index origin, H3Index h3, CoordIJK *out);
-H3Error localIjkToCell(H3Index origin, const CoordIJK *ijk, H3Index *out);
-
+#if defined(H3_COVERAGE_TEST) || defined(H3_DEBUG)
+/*
+** Counter used for coverage testing.  Does not come into play for
+** release builds.
+**
+** Access to this global variable is not mutex protected.  This might
+** result in TSAN warnings.  But as the variable does not exist in
+** release builds, that should not be a concern.
+*/
+unsigned int h3CoverageCounter;
 #endif
